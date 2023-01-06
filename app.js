@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
+const port= process.env.PORT || 3000;
 //mongodb+srv://vedantverma56:mongodbatlas@cluster0.o7yd2lh.mongodb.net/?retryWrites=true&w=majority/todolistDB
 mongoose.connect("mongodb+srv://vedantverma56:mongodbatlas@cluster0.o7yd2lh.mongodb.net/todolistDB", {useNewUrlParser: true});
 
@@ -136,6 +136,6 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(port, function() {
+  console.log("Server started on port "+port);
 });
